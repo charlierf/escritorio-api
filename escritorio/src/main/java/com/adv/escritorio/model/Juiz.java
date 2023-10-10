@@ -19,7 +19,7 @@ public class Juiz {
     private String tipo;
 
     @ManyToOne(fetch = LAZY)
-    @JoinColumn(name ="vara", referencedColumnName ="idVara")
+    @JoinColumn(name ="vara", referencedColumnName ="id_vara")
     private Vara vara;
 
 

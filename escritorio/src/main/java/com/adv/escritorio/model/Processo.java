@@ -34,16 +34,16 @@ public class Processo {
     private Double valorDaCausa;
 
     @Column(name = "transito_julgado", nullable = false)
-    private SmallIntJdbcType transitoJulgado;
+    private Integer transitoJulgado;
 
     private String estado;
 
-    @Convert(converter = ProcessoConverter.class)
+    //@Convert(converter = ProcessoConverter.class)
     @Column(name = "Resultado", nullable = false)
-    private ProcessoEnum resultado;
+    private String resultado;
 
     @OneToOne(fetch = LAZY)
-    @JoinColumn(name = "idDemanda")
+    @JoinColumn(name = "id_demanda")
     private Demanda demanda;
 
 }

@@ -10,15 +10,15 @@ import static jakarta.persistence.FetchType.LAZY;
 @Entity
 @Table(name="desembargador")
 public class Desembargador {
-    @Column(name = "idDesembargador")
+    @Column(name = "id_desembargador")
     @Id
-    private String id;
+    private Integer id;
 
     @Column(name = "nome")
     private String nome;
 
     @ManyToOne(fetch = LAZY)
-    @JoinColumn(name = "idCamara")
+    @JoinColumn(name = "id_camara")
     private Camara camara;
 
 

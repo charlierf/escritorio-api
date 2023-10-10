@@ -13,9 +13,9 @@ import lombok.Data;
 public class Tribunal {
 
 
-    @Column(name = "idTribunal")
+    @Column(name = "id_tribunal")
     @Id
-    private String id;
+    private Integer id;
 
     private String nome;
 

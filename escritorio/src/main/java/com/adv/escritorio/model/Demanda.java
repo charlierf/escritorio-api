@@ -3,7 +3,7 @@ package com.adv.escritorio.model;
 import jakarta.persistence.*;
 import lombok.Data;
 
-import java.io.Serial;
+import java.io.Serializable;
 
 import static jakarta.persistence.FetchType.LAZY;
 
@@ -14,9 +14,9 @@ import static jakarta.persistence.FetchType.LAZY;
 public class Demanda {
 
 
-    @Column(name = "idDemanda")
+    @Column(name = "id_demanda")
     @Id
-    private String id;
+    private Integer idDemanda;
 
     private String area;
 
@@ -24,7 +24,7 @@ public class Demanda {
     private Double valor;
 
     @Column(name = "viabilidade")
-    private Double viabilidade;
+    private String viabilidade;
 
     private String fase;
 

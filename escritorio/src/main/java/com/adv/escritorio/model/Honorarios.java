@@ -14,13 +14,13 @@ import static jakarta.persistence.FetchType.LAZY;
 
 @Data
 @Entity
-@Table(name="advogado")
+@Table(name="honorarios")
 public class Honorarios {
 
 
-    @Column(name = "idHonorarios", nullable = false)
+    @Column(name = "id_honorarios", nullable = false)
     @Id
-    private String id;
+    private Integer id;
 
     @Column(name = "valor_original")
     private Double valorOriginal;
@@ -43,7 +43,7 @@ public class Honorarios {
     private EstadoEnum estado;
 
     @OneToOne(fetch = LAZY)
-    @JoinColumn(name = "idDemanda")
+    @JoinColumn(name = "id_demanda")
     private Demanda demanda;
 
 }

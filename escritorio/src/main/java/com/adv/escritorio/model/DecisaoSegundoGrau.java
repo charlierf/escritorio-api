@@ -10,12 +10,12 @@ import static jakarta.persistence.FetchType.LAZY;
 
 @Data
 @Entity
-@Table(name="Decisão_Segundo_Grau")
+@Table(name="Decisao_Segundo_Grau")
 public class DecisaoSegundoGrau {
 
-    @Column(name = "idDecisão")
+    @Column(name = "id_decisao")
     @Id
-    private String id;
+    private Integer id;
 
     private String tipo;
 
@@ -24,11 +24,11 @@ public class DecisaoSegundoGrau {
     private Date data;
 
     @ManyToOne(fetch = LAZY)
-    @JoinColumn(name = "idDesembargador")
+    @JoinColumn(name = "id_desembargador")
     private Desembargador desembargador;
 
     @ManyToOne(fetch = LAZY)
-    @JoinColumn(name = "idCamara")
+    @JoinColumn(name = "id_camara")
     private Camara camara;
 
     @ManyToOne(fetch = LAZY)

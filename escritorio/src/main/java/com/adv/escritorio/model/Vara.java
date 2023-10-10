@@ -12,9 +12,9 @@ import static jakarta.persistence.FetchType.LAZY;
 public class Vara {
 
 
-    @Column(name = "idVara")
+    @Column(name = "id_vara")
     @Id
-    private String id;
+    private Integer id;
 
     @Column(name = "nro_vara")
     private Integer numeroVara;
@@ -25,7 +25,7 @@ public class Vara {
     private String tipo;
 
     @ManyToOne(fetch = LAZY)
-    @JoinColumn(name = "idTribunal")
+    @JoinColumn(name = "id_tribunal")
     private Tribunal tribunal;
 
 

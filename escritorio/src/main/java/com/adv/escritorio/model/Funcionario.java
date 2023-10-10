@@ -14,7 +14,7 @@ public class Funcionario {
 
     @Column(name = "matricula")
     @Id
-    private String id;
+    private Integer id;
 
     private String setor;
 

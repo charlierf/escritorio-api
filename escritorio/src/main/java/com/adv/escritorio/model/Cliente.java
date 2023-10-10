@@ -8,13 +8,13 @@ import static jakarta.persistence.FetchType.LAZY;
 
 @Data
 @Entity
-@Table(name="advogado")
+@Table(name="cliente")
 public class Cliente {
 
 
-    @Column(name = "idCliente")
+    @Column(name = "id_cliente")
     @Id
-    private String id;
+    private Integer id;
 
     @OneToOne(fetch = LAZY)
     @JoinColumn(name = "cpf_cnpj")

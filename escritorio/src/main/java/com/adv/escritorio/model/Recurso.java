@@ -19,10 +19,10 @@ public class Recurso {
 
     @Column(name = "nro_recurso")
     @Id
-    private String id;
+    private Integer id;
 
     @Column(name = "nro_unico")
-    private Integer numero;
+    private String numero;
 
     @Column(name = "comarca_secao")
     private String comarcaSecao;
@@ -44,7 +44,7 @@ public class Recurso {
 
 
     @ManyToOne(fetch = LAZY)
-    @JoinColumn(name = "idTribunal")
+    @JoinColumn(name = "id_tribunal")
     private Tribunal tribunal;
 
 

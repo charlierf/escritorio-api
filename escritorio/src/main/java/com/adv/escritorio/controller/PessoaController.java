@@ -23,19 +23,28 @@ public class PessoaController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Optional<Pessoa>> findById(@PathVariable String id){
+    public ResponseEntity<Pessoa> findById(@PathVariable String id){
         return ResponseEntity.status(HttpStatus.OK).body(pessoaService.findById(id));
     }
 
     @PostMapping
-    public ResponseEntity<Pessoa> create(@RequestBody Pessoa Pessoa){
-        return ResponseEntity.status(HttpStatus.CREATED).body(pessoaService.save(Pessoa));
+    public ResponseEntity<Pessoa> create(@RequestBody Pessoa pessoa){
+        return ResponseEntity.status(HttpStatus.CREATED).body(pessoaService.save(pessoa));
     }
 
-    @PutMapping
-    public ResponseEntity<Pessoa> update(@RequestBody Pessoa Pessoa){
-        return ResponseEntity.status(HttpStatus.OK).body(pessoaService.update(Pessoa));
+    @PutMapping("/{id}")
+    public ResponseEntity<Pessoa> update(@PathVariable String id, @RequestBody Pessoa pessoa){
+        // Set the ID for the given Pessoa
+        pessoa.setId(id);
+        Pessoa updatedPessoa = pessoaService.update(pessoa);
+
+        if (updatedPessoa != null) {
+            return ResponseEntity.status(HttpStatus.OK).body(updatedPessoa);
+        } else {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
+        }
     }
+
 
     @DeleteMapping("/{id}")
     public ResponseEntity<?> delete(@PathVariable String id){

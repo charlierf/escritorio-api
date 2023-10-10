@@ -25,7 +25,7 @@ public class EscritorioController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Optional<Escritorio>> findById(@PathVariable String id){
+    public ResponseEntity<Escritorio> findById(@PathVariable String id){
         return ResponseEntity.status(HttpStatus.OK).body(escritorioService.findById(id));
     }
 
@@ -34,8 +34,9 @@ public class EscritorioController {
         return ResponseEntity.status(HttpStatus.CREATED).body(escritorioService.save(escritorio));
     }
 
-    @PutMapping
-    public ResponseEntity<Escritorio> update(@RequestBody Escritorio escritorio){
+    @PutMapping("/{id}")
+    public ResponseEntity<Escritorio> update(@PathVariable String id, @RequestBody Escritorio escritorio){
+        escritorio.setId(id);
         return ResponseEntity.status(HttpStatus.OK).body(escritorioService.update(escritorio));
     }
 

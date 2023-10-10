@@ -3,7 +3,6 @@ package com.adv.escritorio.service;
 import com.adv.escritorio.model.Pessoa;
 
 import java.util.List;
-import java.util.Optional;
 
 public interface PessoaService {
 
@@ -11,7 +10,7 @@ public interface PessoaService {
 
     List<Pessoa> findAll();
 
-    Optional<Pessoa> findById(String id);
+    Pessoa findById(String id);
 
     Pessoa update(Pessoa pessoa);
 

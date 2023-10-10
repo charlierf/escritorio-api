@@ -11,7 +11,7 @@ public interface CausaService {
 
     List<Causa> findAll();
 
-    Optional<Causa> findById(String id);
+    Causa findById(String id);
 
     Causa update(Causa causa);
 

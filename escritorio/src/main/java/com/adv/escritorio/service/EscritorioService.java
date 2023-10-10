@@ -11,7 +11,7 @@ public interface EscritorioService {
 
     List<Escritorio> findAll();
 
-    Optional<Escritorio> findById(String id);
+    Escritorio findById(String id);
 
     Escritorio update(Escritorio escritorio);
 

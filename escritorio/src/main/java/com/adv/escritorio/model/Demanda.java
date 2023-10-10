@@ -1,5 +1,6 @@
 package com.adv.escritorio.model;
 
+import com.adv.escritorio.model.enums.ViabilidadeEnum;
 import jakarta.persistence.*;
 import lombok.Data;
 
@@ -16,7 +17,7 @@ public class Demanda {
 
     @Column(name = "id_demanda")
     @Id
-    private Integer idDemanda;
+    private Long idDemanda;
 
     private String area;
 
@@ -24,7 +25,7 @@ public class Demanda {
     private Double valor;
 
     @Column(name = "viabilidade")
-    private String viabilidade;
+    private ViabilidadeEnum viabilidade;
 
     private String fase;
 

@@ -23,7 +23,7 @@ public class AdvogadoController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Optional<Advogado>> findById(@PathVariable String id){
+    public ResponseEntity<Advogado> findById(@PathVariable String id){
         return ResponseEntity.status(HttpStatus.OK).body(advogadoService.findById(id));
     }
 
@@ -32,8 +32,9 @@ public class AdvogadoController {
         return ResponseEntity.status(HttpStatus.CREATED).body(advogadoService.save(advogado));
     }
 
-    @PutMapping
-    public ResponseEntity<Advogado> update(@RequestBody Advogado advogado){
+    @PutMapping("/{id}")
+    public ResponseEntity<Advogado> update(@PathVariable String id, @RequestBody Advogado advogado){
+        advogado.setId(id);
         return ResponseEntity.status(HttpStatus.OK).body(advogadoService.update(advogado));
     }
 

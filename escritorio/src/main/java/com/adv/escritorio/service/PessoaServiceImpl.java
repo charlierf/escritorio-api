@@ -6,7 +6,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Optional;
 
 @Service
 public class PessoaServiceImpl implements PessoaService{
@@ -24,13 +23,41 @@ public class PessoaServiceImpl implements PessoaService{
     }
 
     @Override
-    public Optional<Pessoa> findById(String id) {
-        return pessoaRepository.findById(id);
+    public Pessoa findById(String id) {
+        return pessoaRepository.findById(id).orElse(null);
     }
 
     @Override
-    public Pessoa update(Pessoa pessoa) {
-        return pessoaRepository.save(pessoa);
+    public Pessoa update(Pessoa updatedPessoa) {
+        String id = updatedPessoa.getId();
+        Pessoa existingPessoa = findById(id);
+
+        if (existingPessoa != null) {
+
+            if (updatedPessoa.getEndereco() != null) {
+                existingPessoa.setEndereco(updatedPessoa.getEndereco());
+            }
+
+            if (updatedPessoa.getTelefone() != null) {
+                existingPessoa.setTelefone(updatedPessoa.getTelefone());
+            }
+
+            if (updatedPessoa.getEmail() != null) {
+                existingPessoa.setEmail(updatedPessoa.getEmail());
+            }
+
+            if (updatedPessoa.getNome() != null) {
+                existingPessoa.setNome(updatedPessoa.getNome());
+            }
+
+            if (updatedPessoa.getSobrenome() != null) {
+                existingPessoa.setSobrenome(updatedPessoa.getSobrenome());
+            }
+
+            return pessoaRepository.save(existingPessoa);
+        }
+
+        return null;
     }
 
     @Override

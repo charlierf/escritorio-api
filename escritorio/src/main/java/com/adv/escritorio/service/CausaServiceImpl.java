@@ -1,5 +1,6 @@
 package com.adv.escritorio.service;
 
+import com.adv.escritorio.model.Advogado;
 import com.adv.escritorio.model.Causa;
 import com.adv.escritorio.repository.CausaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,13 +25,29 @@ public class CausaServiceImpl implements CausaService{
     }
 
     @Override
-    public Optional<Causa> findById(String id) {
-        return causaRepository.findById(id);
+    public Causa findById(String id) {
+        return causaRepository.findById(id).orElse(null);
     }
 
     @Override
-    public Causa update(Causa causa) {
-        return causaRepository.save(causa);
+    public Causa update(Causa updatedCausa) {
+        String id = updatedCausa.getIdDemanda().toString();
+        Causa existingCausa = findById(id);
+
+        if (existingCausa != null) {
+
+            if (updatedCausa.getAdvogado() != null) {
+                existingCausa.setAdvogado(updatedCausa.getAdvogado());
+            }
+
+            if (updatedCausa.getEscritorio() != null) {
+                existingCausa.setEscritorio(updatedCausa.getEscritorio());
+            }
+
+            return causaRepository.save(existingCausa);
+        }
+
+        return null;
     }
 
     @Override

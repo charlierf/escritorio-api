@@ -11,7 +11,7 @@ public interface DemandaService {
 
     List<Demanda> findAll();
 
-    Optional<Demanda> findById(String id);
+    Demanda findById(String id);
 
     Demanda update(Demanda demanda);
 

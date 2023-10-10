@@ -14,7 +14,6 @@ import static jakarta.persistence.FetchType.LAZY;
 //@SecondaryTable(name = "escritorio", pkJoinColumns = @PrimaryKeyJoinColumn(name = "oab"))
 public class Causa {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_demanda")
     private Long idDemanda;
 

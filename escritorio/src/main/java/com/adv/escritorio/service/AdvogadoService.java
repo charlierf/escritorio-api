@@ -11,7 +11,7 @@ public interface AdvogadoService {
 
     List<Advogado> findAll();
 
-    Optional<Advogado> findById(String id);
+    Advogado findById(String id);
 
     Advogado update(Advogado advogado);
 

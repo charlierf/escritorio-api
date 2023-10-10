@@ -25,7 +25,7 @@ public class DemandaController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Optional<Demanda>> findById(@PathVariable String id){
+    public ResponseEntity<Demanda> findById(@PathVariable String id){
         return ResponseEntity.status(HttpStatus.OK).body(demandaService.findById(id));
     }
 
@@ -34,8 +34,9 @@ public class DemandaController {
         return ResponseEntity.status(HttpStatus.CREATED).body(demandaService.save(demanda));
     }
 
-    @PutMapping
-    public ResponseEntity<Demanda> update(@RequestBody Demanda demanda){
+    @PutMapping("/{id}")
+    public ResponseEntity<Demanda> update(@PathVariable Long id, @RequestBody Demanda demanda){
+        demanda.setIdDemanda(id);
         return ResponseEntity.status(HttpStatus.OK).body(demandaService.update(demanda));
     }
 
